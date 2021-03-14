@@ -12,4 +12,5 @@ A bot to continuously ouput futurama quotes.
 1. `$ git clone https://github.com/jdpahl122/futurama-ruby-bot.git`
 2. `$ cd futurama-ruby-bot/`
 3. `$ bundle install`
-5. `$ ruby bot.rb`
+4. `$ ruby bot.rb`
+5. `$ #profit`
