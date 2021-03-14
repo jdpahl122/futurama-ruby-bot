@@ -1,5 +1,8 @@
 # futurama-ruby-bot
 
+A bot to continuously ouput futurama quotes.
+
+![](https://pbs.twimg.com/media/CpfeBcEWYAAV4QX.jpg)
 
 ## Requirements
 * Ruby >= 3.0
