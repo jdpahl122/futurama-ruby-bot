@@ -1,4 +1,5 @@
 require 'httparty'
+require 'rufus-scheduler'
 
 def get_quote
   r = HTTParty.get('https://morbotron.com/api/random')
@@ -18,4 +19,13 @@ def get_quote
   end
 end
 
-p get_quote
+def start_scheduler(time)
+  scheduler = Rufus::Scheduler.new
+
+  scheduler.every time do
+    p get_quote
+  end
+  scheduler.join
+end
+
+start_scheduler('2s')
