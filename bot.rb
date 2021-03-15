@@ -1,5 +1,7 @@
 require 'httparty'
 require 'rufus-scheduler'
+require 'vonage'
+
 
 def get_quote
   r = HTTParty.get('https://morbotron.com/api/random')
@@ -23,9 +25,14 @@ def start_scheduler(time)
   scheduler = Rufus::Scheduler.new
 
   scheduler.every time do
-    p get_quote
+    send_sms
   end
   scheduler.join
+end
+
+def send_sms
+  client = Vonage::Client.new(api_key: 'YOUR_API_KEY', api_secret: 'YOUR_API_SECRET')
+  client.sms.send(from: 'TelephoneNumber', to: 'TelephoneNumber', text: get_quote.to_s)
 end
 
 start_scheduler('2s')
